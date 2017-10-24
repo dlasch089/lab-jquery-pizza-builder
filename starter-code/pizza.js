@@ -5,16 +5,23 @@ function main() {
 
   function bindIngredientClick(buttonSelector, ingridientSelector, ingridient) {
     $(buttonSelector).click(function() {
-      $(ingridientSelector).toggle();
+      $(ingridientSelector).toggle(1000);
       $(buttonSelector).toggleClass('active');
-      $("li:contains('" + ingridient + "')").toggle();
+      $("li:contains('" + ingridient + "')").toggle(1000);
     });
   }
+
 
   bindIngredientClick('.btn-pepperonni', '.pep', 'pepperonni');
 
   $('.btn-green-peppers').click(function() {
-    $('.green-pepper').toggle();
+    $('.green-pepper').animate({
+      width: "toggle",
+      height: "toggle"
+    }, {
+      duration: 1500,
+      easing: "swing"
+    });
     $('.btn-green-peppers').toggleClass('active');
     $("li:contains('green peppers')").toggle();
   });
